@@ -5,6 +5,22 @@ const myForm = document.getElementById('form');
 const modal = document.getElementById('form-feedback-modal');
 const clicksInfo = document.getElementById('click-count');
 
+document.addEventListener('DOMContentLoaded', function() {
+    const vatUECheckbox = document.getElementById('vatUE');
+    const vatNumberInput = document.getElementById('vatNumber');
+    const vatNumberDiv = vatNumberInput.closest('.mb-3');
+  
+    vatNumberDiv.style.display = 'none';
+  
+    vatUECheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        vatNumberDiv.style.display = 'block';
+      } else {
+        vatNumberDiv.style.display = 'none';
+      }
+    });
+  });
+
 function handleClick() {
     clickCount++;
     clicksInfo.innerText = clickCount;
